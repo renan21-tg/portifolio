@@ -23,7 +23,6 @@ function showImage(index, imageId) {
   if (image && images[imageId]) {
     image.src = images[imageId][index];
 
-    // Atualiza os dots
     const parent = image.closest('.card-projeto1, .card-projeto2');
     if (parent) {
       const dots = parent.querySelectorAll('.dot');
