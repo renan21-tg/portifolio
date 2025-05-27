@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="icon" href="/images/online-resume.png"/>
+</head>
+<body>
+  <div class="projetos-container">
+    <div class="projeto-cards" style="align-items: center;">
+      <div class="titulo-container" id="proj-tit">
+        <div class="projetos-titulo">
+          <h1>Projetos</h1>
+        </div>
+      </div>
+
+      <div style="margin: 20px 0;">
+        <a href="/projetos/novo" class="btn-curriculo" style="text-decoration: none;">
+          Cadastrar novo projeto
+        </a>
+      </div>
+
+      <% projetos.forEach(p => { %>
+        <div style="
+          width: 100%;
+          max-width: 700px;
+          background-color: rgba(13, 13, 13, 0.95);
+          color: #f0f0f0;
+          border-radius: 20px;
+          padding: 24px;
+          margin-bottom: 30px;
+          box-shadow: 0 0 20px rgba(111, 66, 193, 0.1);
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          position: relative;
+        ">
+          <form action="/projetos/<%= p.id %>?_method=DELETE" method="POST" class="form-excluir" style="position: absolute; top: 10px; right: 15px;">
+            <button type="submit" class="btn-excluir" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;" title="Excluir projeto">
+              &times;
+            </button>
+          </form>
+          <h2 style="color: #fff; font-size: 1.6rem;"><%= p.nome %></h2>
+          <p style="color: #ccc;"><%= p.descricao %></p>
+          <div>
+            <a href="<%= p.link %>" target="_blank" class="repo-button">
+              <i class="devicon-github-original"></i> Acessar repositório
+            </a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>

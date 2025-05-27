@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Projeto</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="icon" href="/images/online-resume.png"/>
+</head>
+<body>
+  <div class="projetos-container">
+  <div class="projeto-cards" style="align-items: center;">
+    <div class="titulo-container" id="proj-tit">
+      <div class="projetos-titulo">
+        <h1>Cadastrar Projeto</h1>
+      </div>
+    </div>
+
+    <div class="card-projeto1" style="
+      width: 100%;
+      max-width: 600px;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    ">
+      <form action="/projetos/novo" method="POST" style="
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      ">
+        <div>
+          <label style="color: #ccc; font-weight: bold;">Nome do Projeto:</label><br>
+          <input type="text" name="nome" required 
+            style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 1rem;">
+        </div>
+
+        <div>
+          <label style="color: #ccc; font-weight: bold;">Descrição:</label><br>
+          <textarea name="descricao" required rows="4"
+            style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 1rem;"></textarea>
+        </div>
+
+        <div>
+          <label style="color: #ccc; font-weight: bold;">Link do GitHub:</label><br>
+          <input type="url" name="link" required
+            style="width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 1rem;">
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <button type="submit" class="btn-curriculo" style="border: none;">
+            💾 Salvar Projeto
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
