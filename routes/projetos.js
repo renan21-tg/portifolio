@@ -16,9 +16,23 @@ router.get("/novo", (req, res) => {
 // Cadastro
 router.post("/novo", async (req, res) => {
   const { nome, descricao, link } = req.body;
-  await Projeto.create({ nome, descricao, link });
-  res.redirect("/projetos");
+
+  try {
+    const novoProjeto = await Projeto.create({ nome, descricao, link });
+
+    const aceitaHTML = req.headers.accept && req.headers.accept.includes('text/html');
+
+    if (aceitaHTML) {
+      res.redirect("/projetos");
+    } else {
+      res.status(201).json({ message: "Projeto criado com sucesso", projeto: novoProjeto });
+    }
+  } catch (error) {
+    console.error("Erro ao criar projeto:", error);
+    res.status(500).json({ error: "Erro ao criar projeto" });
+  }
 });
+
 
 // Deletar
 router.delete('/:id', async (req, res) => {
